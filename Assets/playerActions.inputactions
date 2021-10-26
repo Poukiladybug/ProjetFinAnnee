@@ -2,7 +2,7 @@
     "name": "playerActions",
     "maps": [
         {
-            "name": "Gameplay",
+            "name": "FireGameplay",
             "id": "d9019007-08fe-438e-9b05-a7c06a5bf1e3",
             "actions": [
                 {
@@ -47,6 +47,52 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "ArcherGameplay",
+            "id": "29ce9d6c-7890-4189-9252-5fe4485913e5",
+            "actions": [
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "42c543fc-4669-49b0-9dd5-bf3f166d055f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "5aba0871-16d2-4e30-a7ba-dd1fdbeac9a4",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1090b9c9-c3e1-4bca-a07c-14783d43e4cd",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d3ca869d-e890-46dc-bfca-e4b6cc67920c",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

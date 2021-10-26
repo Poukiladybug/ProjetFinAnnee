@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate() // utilisation de la physics
     {
-        Vector2 moveInput = playerInput.Gameplay.Movement.ReadValue<Vector2>();
+        Vector2 moveInput = playerInput.FireGameplay.Movement.ReadValue<Vector2>();
         rb.velocity = moveInput * speed;
 
     }

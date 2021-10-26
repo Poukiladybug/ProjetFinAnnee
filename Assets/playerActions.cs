@@ -15,7 +15,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
     ""name"": ""playerActions"",
     ""maps"": [
         {
-            ""name"": ""Gameplay"",
+            ""name"": ""FireGameplay"",
             ""id"": ""d9019007-08fe-438e-9b05-a7c06a5bf1e3"",
             ""actions"": [
                 {
@@ -62,13 +62,63 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""ArcherGameplay"",
+            ""id"": ""29ce9d6c-7890-4189-9252-5fe4485913e5"",
+            ""actions"": [
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""42c543fc-4669-49b0-9dd5-bf3f166d055f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""5aba0871-16d2-4e30-a7ba-dd1fdbeac9a4"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""1090b9c9-c3e1-4bca-a07c-14783d43e4cd"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3ca869d-e890-46dc-bfca-e4b6cc67920c"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // Gameplay
-        m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
+        // FireGameplay
+        m_FireGameplay = asset.FindActionMap("FireGameplay", throwIfNotFound: true);
+        m_FireGameplay_Movement = m_FireGameplay.FindAction("Movement", throwIfNotFound: true);
+        // ArcherGameplay
+        m_ArcherGameplay = asset.FindActionMap("ArcherGameplay", throwIfNotFound: true);
+        m_ArcherGameplay_Shoot = m_ArcherGameplay.FindAction("Shoot", throwIfNotFound: true);
+        m_ArcherGameplay_Movement = m_ArcherGameplay.FindAction("Movement", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -115,29 +165,29 @@ public class @PlayerActions : IInputActionCollection, IDisposable
         asset.Disable();
     }
 
-    // Gameplay
-    private readonly InputActionMap m_Gameplay;
-    private IGameplayActions m_GameplayActionsCallbackInterface;
-    private readonly InputAction m_Gameplay_Movement;
-    public struct GameplayActions
+    // FireGameplay
+    private readonly InputActionMap m_FireGameplay;
+    private IFireGameplayActions m_FireGameplayActionsCallbackInterface;
+    private readonly InputAction m_FireGameplay_Movement;
+    public struct FireGameplayActions
     {
         private @PlayerActions m_Wrapper;
-        public GameplayActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
-        public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
+        public FireGameplayActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_FireGameplay_Movement;
+        public InputActionMap Get() { return m_Wrapper.m_FireGameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
-        public void SetCallbacks(IGameplayActions instance)
+        public static implicit operator InputActionMap(FireGameplayActions set) { return set.Get(); }
+        public void SetCallbacks(IFireGameplayActions instance)
         {
-            if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
+            if (m_Wrapper.m_FireGameplayActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
+                @Movement.started -= m_Wrapper.m_FireGameplayActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_FireGameplayActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_FireGameplayActionsCallbackInterface.OnMovement;
             }
-            m_Wrapper.m_GameplayActionsCallbackInterface = instance;
+            m_Wrapper.m_FireGameplayActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Movement.started += instance.OnMovement;
@@ -146,9 +196,55 @@ public class @PlayerActions : IInputActionCollection, IDisposable
             }
         }
     }
-    public GameplayActions @Gameplay => new GameplayActions(this);
-    public interface IGameplayActions
+    public FireGameplayActions @FireGameplay => new FireGameplayActions(this);
+
+    // ArcherGameplay
+    private readonly InputActionMap m_ArcherGameplay;
+    private IArcherGameplayActions m_ArcherGameplayActionsCallbackInterface;
+    private readonly InputAction m_ArcherGameplay_Shoot;
+    private readonly InputAction m_ArcherGameplay_Movement;
+    public struct ArcherGameplayActions
     {
+        private @PlayerActions m_Wrapper;
+        public ArcherGameplayActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Shoot => m_Wrapper.m_ArcherGameplay_Shoot;
+        public InputAction @Movement => m_Wrapper.m_ArcherGameplay_Movement;
+        public InputActionMap Get() { return m_Wrapper.m_ArcherGameplay; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ArcherGameplayActions set) { return set.Get(); }
+        public void SetCallbacks(IArcherGameplayActions instance)
+        {
+            if (m_Wrapper.m_ArcherGameplayActionsCallbackInterface != null)
+            {
+                @Shoot.started -= m_Wrapper.m_ArcherGameplayActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_ArcherGameplayActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_ArcherGameplayActionsCallbackInterface.OnShoot;
+                @Movement.started -= m_Wrapper.m_ArcherGameplayActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_ArcherGameplayActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_ArcherGameplayActionsCallbackInterface.OnMovement;
+            }
+            m_Wrapper.m_ArcherGameplayActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
+            }
+        }
+    }
+    public ArcherGameplayActions @ArcherGameplay => new ArcherGameplayActions(this);
+    public interface IFireGameplayActions
+    {
+        void OnMovement(InputAction.CallbackContext context);
+    }
+    public interface IArcherGameplayActions
+    {
+        void OnShoot(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
     }
 }

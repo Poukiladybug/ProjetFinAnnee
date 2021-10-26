@@ -7,27 +7,28 @@ public class LevelManager : MonoBehaviour
 {
     public UnityEvent whenWin;
     public UnityEvent whenLose;
-    public GameObject itemPrefab;
+    public GameObject targets;
     public GameObject player;
-    public GameObject ground;
-    int col = 6;
-    int gapCol = 2;
-    public float timer = 2f;
+    int col = 12;
+    int gapCol = 1;
+    public float timeBeforeSpawn = 0.5f;
+    private float timer = 1f;
     public static int life = 3;
     public static int score = 0;
     public float globalTimer = 20f;
 
-    public void createJumper()
+    public void createTarget()
     {
         int x = Random.Range(0, col);
-        Vector3 position = new Vector3(x * gapCol, 0.5f, -1.5f);
-        GameObject item = Instantiate(itemPrefab, position, Quaternion.identity);
+        Vector3 position = new Vector3(x * gapCol, 6f, -1.5f);
+        GameObject item = Instantiate(targets, position, Quaternion.identity);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //createJumper();
+        Vector3 startingPoint = new Vector3(5.5f, -4.75f, 0f);
+        GameObject item = Instantiate(player, startingPoint, Quaternion.identity);
     }
 
 
@@ -39,8 +40,8 @@ public class LevelManager : MonoBehaviour
         globalTimer -= Time.deltaTime;
         if (timer <= 0)
         {
-            createJumper();
-            timer = 2f;
+            createTarget();
+            timer = timeBeforeSpawn;
         }
 
         if (globalTimer <= 0)
