@@ -7,6 +7,8 @@ TagManager:
   - ground
   - player
   - jumper
+  - target
+  - arrow
   layers:
   - Default
   - TransparentFX

@@ -5,17 +5,16 @@ using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
-    public UnityEvent whenWin;
-    public UnityEvent whenLose;
+    public UnityEvent whenTimesOver;
     public GameObject targets;
     public GameObject player;
     int col = 12;
     int gapCol = 1;
     public float timeBeforeSpawn = 0.5f;
     private float timer = 1f;
-    public static int life = 3;
+
     public static int score = 0;
-    public float globalTimer = 20f;
+    public static float globalTimer = 20f;
 
     public void createTarget()
     {
@@ -46,20 +45,13 @@ public class LevelManager : MonoBehaviour
 
         if (globalTimer <= 0)
         {
-            whenWin?.Invoke();
+            whenTimesOver?.Invoke();
         }
 
-        if (Manager.life <= 0)
-        {
-            whenLose?.Invoke();
-        }
+        
     }
 
-    public static void LoseLife()
-    {
-        life--;
-    }
-
+    
     public static void AddScore()
     {
         score += 10;
