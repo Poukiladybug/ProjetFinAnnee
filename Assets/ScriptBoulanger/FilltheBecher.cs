@@ -11,6 +11,7 @@ public class FilltheBecher : MonoBehaviour, IPointerClickHandler
     public GameObject obj;
     public Image becher;
     private bool playerClick = false;
+    private int clik = 1;
     //float filled = becher.fillAmount;
 
     // Start is called before the first frame update
@@ -28,18 +29,28 @@ public class FilltheBecher : MonoBehaviour, IPointerClickHandler
         if (playerClick)
         {
             becher.fillAmount += Time.deltaTime / 10;
+             
         }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("1");
-        if (Input.GetMouseButtonDown(0))
+        if (clik >= 0)
         {
+            Debug.Log("1");
+
             Debug.Log("2");
             playerClick = !playerClick;
-            obj.SetActive(playerClick);
-
+            Debug.Log(clik);
+            clik -= 1;
         }
+        
+       
+        
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    Debug.Log("3");
+        //    playerClick = !playerClick;
+        //}
     }
 }
