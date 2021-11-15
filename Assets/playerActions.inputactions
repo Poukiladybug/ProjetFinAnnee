@@ -95,6 +95,52 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "BoulangerGameplay",
+            "id": "3a0b21b9-0a2b-4752-bbb5-9b43a8ac7195",
+            "actions": [
+                {
+                    "name": "Fill",
+                    "type": "Button",
+                    "id": "f1d82cc9-0515-4b8f-ba5c-84f9e187928a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "IncreaseFire",
+                    "type": "Button",
+                    "id": "40d60b80-a06b-49fb-bcea-49a12d2286fc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "47ca4e3c-3d2e-406d-8382-e88de213e121",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eb5b23c0-ab24-49c9-89d4-13657fd6ffe6",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "IncreaseFire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
