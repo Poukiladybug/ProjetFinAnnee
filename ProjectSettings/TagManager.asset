@@ -9,6 +9,11 @@ TagManager:
   - jumper
   - target
   - arrow
+  - farine
+  - levure
+  - beure
+  - eau
+  - sel
   layers:
   - Default
   - TransparentFX

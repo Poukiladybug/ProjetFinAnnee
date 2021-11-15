@@ -12,6 +12,11 @@ public class FilltheBecher : MonoBehaviour, IPointerClickHandler
     public Image becher;
     private bool playerClick = false;
     private int clik = 1;
+    public static float levure;
+    public static float farine;
+    public static float beure;
+    public static float eau;
+    public static float sel;
     //float filled = becher.fillAmount;
 
     // Start is called before the first frame update
@@ -29,7 +34,31 @@ public class FilltheBecher : MonoBehaviour, IPointerClickHandler
         if (playerClick)
         {
             becher.fillAmount += Time.deltaTime / 10;
-             
+
+            if (obj.CompareTag("levure"))
+            {
+                levure = becher.fillAmount;
+            }
+
+            if (obj.CompareTag("farine"))
+            {
+                farine = becher.fillAmount;
+            }
+
+            if (obj.CompareTag("beure"))
+            {
+                beure = becher.fillAmount;
+            }
+
+            if (obj.CompareTag("eau"))
+            {
+                eau = becher.fillAmount;
+            }
+
+            if (obj.CompareTag("sel"))
+            {
+                sel = becher.fillAmount;
+            }
         }
     }
 

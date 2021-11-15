@@ -12,8 +12,6 @@ public class ArcherController : MonoBehaviour
     public float vertical_speed = 5f;
 
 
-    [SerializeField] private float speed = 10.0f;
-
     private void Awake()
     {
         playerInput = new PlayerActions();
