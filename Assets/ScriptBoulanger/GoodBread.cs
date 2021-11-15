@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GoodBread : MonoBehaviour
 {
+    public TextMeshPro breadTaste;
     public GameObject goodBread;
     public GameObject badBread;
     public float levelOfFarine;
@@ -32,7 +34,15 @@ public class GoodBread : MonoBehaviour
         if (oneBread)
         {
             createBread();
+
+
+
             oneBread = false;
+            //score = Manager.score;
+            //scoreText.text = "score: " + score;
+            //life = Manager.life;
+            //lifeText.text = life + " Life";
+
         }
 
     }
@@ -43,7 +53,7 @@ public class GoodBread : MonoBehaviour
 
         Vector3 position = new Vector3(0f, 0f, 0f);
 
-        if( levelOfFarine > 0.7f && levelOfFarine < 0.8f && levelOfLevure >0.4f && levelOfLevure < 0.5f && levelOfBeure > 0.1f && levelOfBeure < 0.2f && levelOfEau > 0.1f && levelOfEau < 0.2f && levelOfSel < 0.1f)
+        if( levelOfFarine > 0.7f && levelOfFarine < 0.8f && levelOfLevure >0.4f && levelOfLevure < 0.5f && levelOfBeure > 0.2f && levelOfBeure < 0.3f && levelOfEau > 0.1f && levelOfEau < 0.2f && levelOfSel < 0.1f)
         {
             GameObject item = Instantiate(goodBread, position, Quaternion.identity);
         }
@@ -52,5 +62,7 @@ public class GoodBread : MonoBehaviour
         {
             GameObject item = Instantiate(badBread, position, Quaternion.identity);
         }
+
+
     }
 }

@@ -4,7 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-
+// utiliser un don't destroy on load ... pour ne pas perdre les données de la recette
+//OU
+// utiliser des playerspref...
+//OU
+// laisser comme ça?
 
 public class FilltheBecher : MonoBehaviour, IPointerClickHandler
 {

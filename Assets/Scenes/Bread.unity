@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goodBread: {fileID: 9204318365127361921, guid: 5113506bbfd5ef04f8eef63557cc5206, type: 3}
   badBread: {fileID: 1182595279089547026, guid: 238235bcb0fbdd24a94395d53bd4d4f3, type: 3}
+  levelOfFarine: 0
 --- !u!4 &122184057
 Transform:
   m_ObjectHideFlags: 0
