@@ -17,4 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TimeOver.unity
     guid: 48d5878bf31456f4098874d7b4b68768
+  - enabled: 1
+    path: Assets/Scenes/Boulangers.unity
+    guid: 17955d2158027984f936819cedb631d6
+  - enabled: 1
+    path: Assets/Scenes/AuFour.unity
+    guid: d27186aca2b56524880bb7751cc9622a
+  - enabled: 1
+    path: Assets/Scenes/Bread.unity
+    guid: 919b139ebb0c7cd468869f086b9ea08c
+  - enabled: 1
+    path: Assets/Scenes/MaisonDesArchers.unity
+    guid: 72ec8c3d48090504a9647412a6a1a218
   m_configObjects: {}
