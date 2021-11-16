@@ -128,6 +128,14 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""TakeBread"",
+                    ""type"": ""Value"",
+                    ""id"": ""8b4fdf1d-cf1a-46e6-b1c1-77f3b9258a48"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -152,6 +160,17 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                     ""action"": ""IncreaseFire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""81e8abba-59bf-4f5c-9e63-4fb40912f4da"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TakeBread"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -169,6 +188,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
         m_BoulangerGameplay = asset.FindActionMap("BoulangerGameplay", throwIfNotFound: true);
         m_BoulangerGameplay_Fill = m_BoulangerGameplay.FindAction("Fill", throwIfNotFound: true);
         m_BoulangerGameplay_IncreaseFire = m_BoulangerGameplay.FindAction("IncreaseFire", throwIfNotFound: true);
+        m_BoulangerGameplay_TakeBread = m_BoulangerGameplay.FindAction("TakeBread", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -294,12 +314,14 @@ public class @PlayerActions : IInputActionCollection, IDisposable
     private IBoulangerGameplayActions m_BoulangerGameplayActionsCallbackInterface;
     private readonly InputAction m_BoulangerGameplay_Fill;
     private readonly InputAction m_BoulangerGameplay_IncreaseFire;
+    private readonly InputAction m_BoulangerGameplay_TakeBread;
     public struct BoulangerGameplayActions
     {
         private @PlayerActions m_Wrapper;
         public BoulangerGameplayActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Fill => m_Wrapper.m_BoulangerGameplay_Fill;
         public InputAction @IncreaseFire => m_Wrapper.m_BoulangerGameplay_IncreaseFire;
+        public InputAction @TakeBread => m_Wrapper.m_BoulangerGameplay_TakeBread;
         public InputActionMap Get() { return m_Wrapper.m_BoulangerGameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -315,6 +337,9 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 @IncreaseFire.started -= m_Wrapper.m_BoulangerGameplayActionsCallbackInterface.OnIncreaseFire;
                 @IncreaseFire.performed -= m_Wrapper.m_BoulangerGameplayActionsCallbackInterface.OnIncreaseFire;
                 @IncreaseFire.canceled -= m_Wrapper.m_BoulangerGameplayActionsCallbackInterface.OnIncreaseFire;
+                @TakeBread.started -= m_Wrapper.m_BoulangerGameplayActionsCallbackInterface.OnTakeBread;
+                @TakeBread.performed -= m_Wrapper.m_BoulangerGameplayActionsCallbackInterface.OnTakeBread;
+                @TakeBread.canceled -= m_Wrapper.m_BoulangerGameplayActionsCallbackInterface.OnTakeBread;
             }
             m_Wrapper.m_BoulangerGameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -325,6 +350,9 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 @IncreaseFire.started += instance.OnIncreaseFire;
                 @IncreaseFire.performed += instance.OnIncreaseFire;
                 @IncreaseFire.canceled += instance.OnIncreaseFire;
+                @TakeBread.started += instance.OnTakeBread;
+                @TakeBread.performed += instance.OnTakeBread;
+                @TakeBread.canceled += instance.OnTakeBread;
             }
         }
     }
@@ -342,5 +370,6 @@ public class @PlayerActions : IInputActionCollection, IDisposable
     {
         void OnFill(InputAction.CallbackContext context);
         void OnIncreaseFire(InputAction.CallbackContext context);
+        void OnTakeBread(InputAction.CallbackContext context);
     }
 }

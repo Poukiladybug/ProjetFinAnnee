@@ -19,7 +19,12 @@ public class SetFireToTheBread : MonoBehaviour
     public bool unPain = true;
     public bool onePain = true;
     public bool unBread = true;
-    private Vector3 position = new Vector3(0f, 0.38f, 0f);
+    private Vector3 position = new Vector3(0f, 0.38f, 0);
+    private GameObject item1;
+    private GameObject item2;
+    private GameObject item3;
+    private GameObject item4;
+    private float changeSceneTimer = 1.5f;
 
 
 
@@ -28,11 +33,12 @@ public class SetFireToTheBread : MonoBehaviour
     {
         image.fillAmount += heat;
         
-        if (image.fillAmount >= 1f)
+        if ((image.fillAmount >= 1f) && onePain)
         {
             startTimer = true;
             mustClik = false;
-            GameObject item = Instantiate(parfait, position, Quaternion.identity);
+            Destroy(item2);
+            item3 = Instantiate(parfait, position, Quaternion.identity);
             onePain = false;
             //Change("Bread");
         }
@@ -47,15 +53,17 @@ public class SetFireToTheBread : MonoBehaviour
             
         }
 
-        if (feu.fillAmount >= 0f)
+        if ((feu.fillAmount >= 0f) && unBread)
         {
-            GameObject item = Instantiate(pate, position, Quaternion.identity);
+            item1 = Instantiate(pate, position, Quaternion.identity);
             unBread = false;
+            
         }
 
-        if (feu.fillAmount > 0.5f)
+        if ((feu.fillAmount > 0.5f) && unPain)
         {
-            GameObject item = Instantiate(pasCuit, position, Quaternion.identity);
+            Destroy(item1);
+            item2 = Instantiate(pasCuit, position, Quaternion.identity);
             unPain = false;
         }
         
@@ -65,8 +73,18 @@ public class SetFireToTheBread : MonoBehaviour
             timer -= Time.deltaTime;
             if ((timer <= 0) && oneBread)
             {
-                GameObject item = Instantiate(carbonise, position, Quaternion.identity);
+                Destroy(item3);
+                item4 = Instantiate(carbonise, position, Quaternion.identity);
                 oneBread = false;
+            }
+        }
+
+        if (oneBread == false)
+        {
+            changeSceneTimer -= Time.deltaTime;
+            if ( changeSceneTimer <= 0)
+            {
+                Change("Bread");
             }
         }
             
@@ -77,4 +95,8 @@ public class SetFireToTheBread : MonoBehaviour
         SceneManager.LoadScene(name);
     }
 
-    }
+    
+
+}
+
+
