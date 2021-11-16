@@ -11,6 +11,9 @@ public class SetFireToTheBread : MonoBehaviour
     private bool mustClik = true;
     public float timer = 5f;
     private bool startTimer = false;
+
+    //Mettre les GameObject en Image et à mettre dans le canvas pour que la pelle puisse interagir avec
+
     public GameObject pate;
     public GameObject pasCuit;
     public GameObject parfait;
