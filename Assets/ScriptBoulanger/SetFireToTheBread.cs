@@ -28,8 +28,13 @@ public class SetFireToTheBread : MonoBehaviour
     private GameObject item3;
     private GameObject item4;
     private float changeSceneTimer = 1.5f;
+    public static bool isPerfect = false;
 
-
+    private void Start()
+    {
+        item1 = Instantiate(pate, position, Quaternion.identity);
+        unBread = false;
+    }
 
     // Update is called once per frame
     public void SetFire(Image image)
@@ -43,6 +48,7 @@ public class SetFireToTheBread : MonoBehaviour
             Destroy(item2);
             item3 = Instantiate(parfait, position, Quaternion.identity);
             onePain = false;
+            isPerfect = true;
             //Change("Bread");
         }
     }
@@ -53,13 +59,6 @@ public class SetFireToTheBread : MonoBehaviour
         if (mustClik)
         {
             feu.fillAmount -= 0.001f;
-            
-        }
-
-        if ((feu.fillAmount >= 0f) && unBread)
-        {
-            item1 = Instantiate(pate, position, Quaternion.identity);
-            unBread = false;
             
         }
 
@@ -88,6 +87,7 @@ public class SetFireToTheBread : MonoBehaviour
             if ( changeSceneTimer <= 0)
             {
                 Change("Bread");
+                BoulangerSceneChanger.isPressed = true;
             }
         }
             
@@ -96,6 +96,7 @@ public class SetFireToTheBread : MonoBehaviour
     public void Change(string name)
     {
         SceneManager.LoadScene(name);
+        BoulangerSceneChanger.isPressed = true;
     }
 
     

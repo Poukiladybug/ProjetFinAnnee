@@ -33,6 +33,13 @@ public class GoodBread : MonoBehaviour
 
         if (oneBread)
         {
+
+            Debug.Log(FilltheBecher.farine);
+            Debug.Log(FilltheBecher.levure);
+            Debug.Log(FilltheBecher.beure);
+            Debug.Log(FilltheBecher.eau);
+            Debug.Log(FilltheBecher.sel);
+
             createBread();
 
 
@@ -47,13 +54,15 @@ public class GoodBread : MonoBehaviour
 
     }
 
+    
+
     public void createBread()
     {
         
 
         Vector3 position = new Vector3(0f, 0f, 0f);
 
-        if( levelOfFarine > 0.7f && levelOfFarine < 0.8f && levelOfLevure >0.4f && levelOfLevure < 0.5f && levelOfBeure > 0.2f && levelOfBeure < 0.3f && levelOfEau > 0.1f && levelOfEau < 0.2f && levelOfSel < 0.1f)
+        if( levelOfFarine > 0.7f && levelOfFarine < 0.8f && levelOfLevure >0.4f && levelOfLevure < 0.5f && levelOfBeure > 0.2f && levelOfBeure < 0.3f && levelOfEau > 0.1f && levelOfEau < 0.2f && levelOfSel < 0.1f && SetFireToTheBread.isPerfect)
         {
             GameObject item = Instantiate(goodBread, position, Quaternion.identity);
         }

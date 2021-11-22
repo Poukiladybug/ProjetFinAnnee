@@ -19,14 +19,14 @@ public class LevelManager : MonoBehaviour
     public void createTarget()
     {
         int x = Random.Range(0, col);
-        Vector3 position = new Vector3(x * gapCol, 6f, -1.5f);
+        Vector3 position = new Vector3((x * gapCol)+1, 6f, -1.5f);
         GameObject item = Instantiate(targets, position, Quaternion.identity);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 startingPoint = new Vector3(5.5f, -4.75f, 0f);
+        Vector2 startingPoint = new Vector2(0, -4.75f);
         GameObject item = Instantiate(player, startingPoint, Quaternion.identity);
     }
 

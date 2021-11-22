@@ -10,6 +10,8 @@ public class ArcherController : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject bullet;
     public float vertical_speed = 5f;
+    private float positionX ;
+    private float positionY;
 
 
     private void Awake()
@@ -31,16 +33,21 @@ public class ArcherController : MonoBehaviour
     void FixedUpdate() // utilisation de la physics
     {
         Vector2 moveInput = playerInput.ArcherGameplay.Movement.ReadValue<Vector2>();
-        rb.MovePosition((moveInput / Screen.width)*11);
+        positionX = (moveInput.x / Screen.width) * 16 -8;
+        positionY = 0;
+        Vector2 newMoveInput = new Vector2(positionX, positionY);
+        rb.MovePosition(newMoveInput);
         // moveInput reçoit une position globale de la souris, c'est à dire relative à la width totale du jeu, pas par rapport à l'écran de jeu.  C'est pour ça qu'on divise par la largeur de l'écran et multiplie ensuite par la largeur de l'écran de jeu
 
     }
 
     private void Shoot()
     {
-        Vector2 position = ((playerInput.ArcherGameplay.Movement.ReadValue<Vector2>())/ Screen.width)*11;
-        position.y = -4;
-        GameObject item = Instantiate(bullet, position, Quaternion.identity);
+        Vector2 moveInput = playerInput.ArcherGameplay.Movement.ReadValue<Vector2>();
+        positionX = (moveInput.x / Screen.width) * 16 -8f ;
+        positionY = -4;
+        Vector2 newMoveInput = new Vector2(positionX, positionY);
+        GameObject item = Instantiate(bullet, newMoveInput, Quaternion.identity);
 
                
     }
