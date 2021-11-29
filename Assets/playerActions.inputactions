@@ -95,6 +95,33 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "test",
+            "id": "b88f7f64-1a12-4149-9a27-e51c27f1face",
+            "actions": [
+                {
+                    "name": "pelle",
+                    "type": "Value",
+                    "id": "81814e5c-c7c5-4873-b561-e6b606a46e74",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "002a641e-5d38-4554-90a4-fbec99a0ced8",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "pelle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
