@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
 
     public void createTarget()
     {
-        int x = Random.Range(0, col);
+        int x = Random.Range(-col/2, col/2);
         Vector3 position = new Vector3((x * gapCol)+1, 6f, -1.5f);
         GameObject item = Instantiate(targets, position, Quaternion.identity);
     }

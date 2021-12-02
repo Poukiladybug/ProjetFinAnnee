@@ -29,11 +29,14 @@ public class SetFireToTheBread : MonoBehaviour
     private GameObject item4;
     private float changeSceneTimer = 1.5f;
     public static bool isPerfect = false;
+    public static bool undercooked = false;
+    public static bool overcooked = false;
 
     private void Start()
     {
         item1 = Instantiate(pate, position, Quaternion.identity);
         unBread = false;
+        undercooked = true;
     }
 
     // Update is called once per frame
@@ -48,6 +51,7 @@ public class SetFireToTheBread : MonoBehaviour
             Destroy(item2);
             item3 = Instantiate(parfait, position, Quaternion.identity);
             onePain = false;
+            undercooked = false;
             isPerfect = true;
             //Change("Bread");
         }
@@ -78,6 +82,8 @@ public class SetFireToTheBread : MonoBehaviour
                 Destroy(item3);
                 item4 = Instantiate(carbonise, position, Quaternion.identity);
                 oneBread = false;
+                isPerfect = false;
+                overcooked = true;
             }
         }
 
