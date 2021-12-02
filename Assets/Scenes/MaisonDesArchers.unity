@@ -806,7 +806,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   targets: {fileID: 24695990726037347, guid: 1dc59c79c856564419330d2a446bbb83, type: 3}
-  player: {fileID: 8689735188194074062, guid: 015c237cbe816d445807b2480e623df3, type: 3}
+  player: {fileID: 3447273246678294384, guid: bd5c8a4d4c456e340b52ff5a6e263db5, type: 3}
   timeBeforeSpawn: 1
 --- !u!4 &1596241831
 Transform:

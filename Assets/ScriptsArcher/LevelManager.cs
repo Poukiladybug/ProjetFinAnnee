@@ -26,7 +26,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector2 startingPoint = new Vector2(0, -4.75f);
+        Vector2 startingPoint = new Vector2(0, -4.50f);
         GameObject item = Instantiate(player, startingPoint, Quaternion.identity);
     }
 
