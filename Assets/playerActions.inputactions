@@ -97,29 +97,13 @@
             ]
         },
         {
-            "name": "BoulangerGameplay",
-            "id": "3a0b21b9-0a2b-4752-bbb5-9b43a8ac7195",
+            "name": "test",
+            "id": "b88f7f64-1a12-4149-9a27-e51c27f1face",
             "actions": [
                 {
-                    "name": "Fill",
-                    "type": "Button",
-                    "id": "f1d82cc9-0515-4b8f-ba5c-84f9e187928a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "IncreaseFire",
-                    "type": "Button",
-                    "id": "40d60b80-a06b-49fb-bcea-49a12d2286fc",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "TakeBread",
+                    "name": "pelle",
                     "type": "Value",
-                    "id": "8b4fdf1d-cf1a-46e6-b1c1-77f3b9258a48",
+                    "id": "81814e5c-c7c5-4873-b561-e6b606a46e74",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
@@ -128,34 +112,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "47ca4e3c-3d2e-406d-8382-e88de213e121",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "Hold",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fill",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "eb5b23c0-ab24-49c9-89d4-13657fd6ffe6",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "Tap",
-                    "processors": "",
-                    "groups": "",
-                    "action": "IncreaseFire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "81e8abba-59bf-4f5c-9e63-4fb40912f4da",
+                    "id": "002a641e-5d38-4554-90a4-fbec99a0ced8",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "TakeBread",
+                    "action": "pelle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
