@@ -135,6 +135,71 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""BoulangerGameplay"",
+            ""id"": ""333cf0bb-1108-414a-b924-5e4f4aaa21c2"",
+            ""actions"": [
+                {
+                    ""name"": ""TakeBread"",
+                    ""type"": ""Value"",
+                    ""id"": ""91d08504-efc9-4097-aca4-9502634d77b0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""03287cf2-820b-426e-80dc-fd67d8ff6dc0"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TakeBread"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""MapController"",
+            ""id"": ""7a5e7a6c-3df0-46ac-9163-246918b414ea"",
+            ""actions"": [
+                {
+                    ""name"": ""interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""a1348328-932c-43c0-8e34-e23c432555a8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""74d34d23-489e-48a7-a1b4-896811045ee0"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d510a5f-e2fc-4a0a-8783-6176396b3985"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -149,6 +214,12 @@ public class @PlayerActions : IInputActionCollection, IDisposable
         // test
         m_test = asset.FindActionMap("test", throwIfNotFound: true);
         m_test_pelle = m_test.FindAction("pelle", throwIfNotFound: true);
+        // BoulangerGameplay
+        m_BoulangerGameplay = asset.FindActionMap("BoulangerGameplay", throwIfNotFound: true);
+        m_BoulangerGameplay_TakeBread = m_BoulangerGameplay.FindAction("TakeBread", throwIfNotFound: true);
+        // MapController
+        m_MapController = asset.FindActionMap("MapController", throwIfNotFound: true);
+        m_MapController_interact = m_MapController.FindAction("interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -301,6 +372,72 @@ public class @PlayerActions : IInputActionCollection, IDisposable
         }
     }
     public TestActions @test => new TestActions(this);
+
+    // BoulangerGameplay
+    private readonly InputActionMap m_BoulangerGameplay;
+    private IBoulangerGameplayActions m_BoulangerGameplayActionsCallbackInterface;
+    private readonly InputAction m_BoulangerGameplay_TakeBread;
+    public struct BoulangerGameplayActions
+    {
+        private @PlayerActions m_Wrapper;
+        public BoulangerGameplayActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @TakeBread => m_Wrapper.m_BoulangerGameplay_TakeBread;
+        public InputActionMap Get() { return m_Wrapper.m_BoulangerGameplay; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BoulangerGameplayActions set) { return set.Get(); }
+        public void SetCallbacks(IBoulangerGameplayActions instance)
+        {
+            if (m_Wrapper.m_BoulangerGameplayActionsCallbackInterface != null)
+            {
+                @TakeBread.started -= m_Wrapper.m_BoulangerGameplayActionsCallbackInterface.OnTakeBread;
+                @TakeBread.performed -= m_Wrapper.m_BoulangerGameplayActionsCallbackInterface.OnTakeBread;
+                @TakeBread.canceled -= m_Wrapper.m_BoulangerGameplayActionsCallbackInterface.OnTakeBread;
+            }
+            m_Wrapper.m_BoulangerGameplayActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @TakeBread.started += instance.OnTakeBread;
+                @TakeBread.performed += instance.OnTakeBread;
+                @TakeBread.canceled += instance.OnTakeBread;
+            }
+        }
+    }
+    public BoulangerGameplayActions @BoulangerGameplay => new BoulangerGameplayActions(this);
+
+    // MapController
+    private readonly InputActionMap m_MapController;
+    private IMapControllerActions m_MapControllerActionsCallbackInterface;
+    private readonly InputAction m_MapController_interact;
+    public struct MapControllerActions
+    {
+        private @PlayerActions m_Wrapper;
+        public MapControllerActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @interact => m_Wrapper.m_MapController_interact;
+        public InputActionMap Get() { return m_Wrapper.m_MapController; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MapControllerActions set) { return set.Get(); }
+        public void SetCallbacks(IMapControllerActions instance)
+        {
+            if (m_Wrapper.m_MapControllerActionsCallbackInterface != null)
+            {
+                @interact.started -= m_Wrapper.m_MapControllerActionsCallbackInterface.OnInteract;
+                @interact.performed -= m_Wrapper.m_MapControllerActionsCallbackInterface.OnInteract;
+                @interact.canceled -= m_Wrapper.m_MapControllerActionsCallbackInterface.OnInteract;
+            }
+            m_Wrapper.m_MapControllerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @interact.started += instance.OnInteract;
+                @interact.performed += instance.OnInteract;
+                @interact.canceled += instance.OnInteract;
+            }
+        }
+    }
+    public MapControllerActions @MapController => new MapControllerActions(this);
     public interface IFireGameplayActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -313,5 +450,13 @@ public class @PlayerActions : IInputActionCollection, IDisposable
     public interface ITestActions
     {
         void OnPelle(InputAction.CallbackContext context);
+    }
+    public interface IBoulangerGameplayActions
+    {
+        void OnTakeBread(InputAction.CallbackContext context);
+    }
+    public interface IMapControllerActions
+    {
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

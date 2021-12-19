@@ -122,6 +122,71 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "BoulangerGameplay",
+            "id": "333cf0bb-1108-414a-b924-5e4f4aaa21c2",
+            "actions": [
+                {
+                    "name": "TakeBread",
+                    "type": "Value",
+                    "id": "91d08504-efc9-4097-aca4-9502634d77b0",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "03287cf2-820b-426e-80dc-fd67d8ff6dc0",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TakeBread",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "MapController",
+            "id": "7a5e7a6c-3df0-46ac-9163-246918b414ea",
+            "actions": [
+                {
+                    "name": "interact",
+                    "type": "Button",
+                    "id": "a1348328-932c-43c0-8e34-e23c432555a8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "74d34d23-489e-48a7-a1b4-896811045ee0",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9d510a5f-e2fc-4a0a-8783-6176396b3985",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

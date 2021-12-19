@@ -16,7 +16,7 @@ public class PellAPain : MonoBehaviour, IPointerClickHandler
     private float xPosition;
     private float yPosition;
 
-    [SerializeField] private float speed = 10.0f;
+    //[SerializeField] private float speed = 10.0f;
 
     private void Awake()
     {
@@ -39,8 +39,10 @@ public class PellAPain : MonoBehaviour, IPointerClickHandler
         if (isActive)
         {
             Vector2 moveInput = playerInput.BoulangerGameplay.TakeBread.ReadValue<Vector2>();
+            //xPosition = (moveInput.x / Screen.width) * 16 +10;
+            //yPosition = (moveInput.y  / Screen.height) * 12 +3;
             xPosition = (moveInput.x / Screen.width) * 16 - 8;
-            yPosition = (moveInput.y / Screen.height) * 12 - 6;
+            yPosition = (moveInput.y / Screen.height) * 12 - 6; /* C'est le calcul / la bonne réponse */
             Vector2 newMoveInpute = new Vector2(xPosition, yPosition);
             rb.MovePosition(newMoveInpute);
             
