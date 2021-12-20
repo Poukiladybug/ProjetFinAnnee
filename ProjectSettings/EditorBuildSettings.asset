@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MaisonDesArchers.unity
     guid: 72ec8c3d48090504a9647412a6a1a218
+  - enabled: 1
+    path: Assets/Scenes/Map.unity
+    guid: 32b70addc1d1a874b920e161d09ff5be
   m_configObjects: {}
