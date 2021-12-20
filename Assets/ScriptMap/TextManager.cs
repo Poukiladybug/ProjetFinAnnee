@@ -16,7 +16,15 @@ public class TextManager : MonoBehaviour
   
     void Start()
     {
-        phrases.Add("");
+        if (SceneChanger.firstTime == false)
+        {
+            Destroy(dialogue);
+            Destroy(button);
+        }
+        else
+        {
+            dialogue.text = "Bonjour visiteur et bienvenue sur la Grand Place de Bruxelles.";
+        }
         phrases.Add("Bonjour visiteur et bienvenue sur la Grand Place de Bruxelles.");//1
         phrases.Add("Si tu es ici, c'est que tu as envie de découvrir l'histoire de ces lieux.");//2
         phrases.Add("Mais attention!  Il te faudra mériter ces précieuses informations et réalisant quelques défis!");//3

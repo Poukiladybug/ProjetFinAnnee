@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Map.unity
+    guid: 32b70addc1d1a874b920e161d09ff5be
+  - enabled: 1
     path: Assets/Scenes/BruxellesOnFire.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -30,6 +33,18 @@ EditorBuildSettings:
     path: Assets/Scenes/MaisonDesArchers.unity
     guid: 72ec8c3d48090504a9647412a6a1a218
   - enabled: 1
-    path: Assets/Scenes/Map.unity
-    guid: 32b70addc1d1a874b920e161d09ff5be
+    path: Assets/Scenes/GrandPlace.unity
+    guid: 4ce3316bf4481e64aae13e8175a04171
+  - enabled: 1
+    path: Assets/Scenes/MaisonDuRoy.unity
+    guid: 6d0209e555835304797a8380072a946e
+  - enabled: 1
+    path: Assets/Scenes/MaisonDeLaLouve.unity
+    guid: dc96ac976d44cd343b517a39c0bacf90
+  - enabled: 1
+    path: Assets/Scenes/Video.unity
+    guid: 68c1b3a4aaf5fef48ade5ccd8e943d89
+  - enabled: 1
+    path: Assets/Scenes/YouLost.unity
+    guid: cd93a9ff7cd95f7439ea4fb21265c5d6
   m_configObjects: {}

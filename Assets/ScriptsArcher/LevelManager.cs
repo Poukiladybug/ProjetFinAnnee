@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class LevelManager : MonoBehaviour
 {
+    
     public UnityEvent whenTimesOver;
+    public UnityEvent WhenYourANoob;
     public GameObject targets;
     public GameObject player;
     int col = 12;
@@ -13,8 +16,9 @@ public class LevelManager : MonoBehaviour
     public float timeBeforeSpawn = 0.5f;
     private float timer = 1f;
 
-    public static int score = 0;
-    public static float globalTimer = 20f;
+    public static int score;
+    public static float globalTimer;
+    
 
     public void createTarget()
     {
@@ -26,6 +30,8 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        score = 0;
+        globalTimer = 20f;
         Vector2 startingPoint = new Vector2(0, -4.50f);
         GameObject item = Instantiate(player, startingPoint, Quaternion.identity);
     }
@@ -45,7 +51,16 @@ public class LevelManager : MonoBehaviour
 
         if (globalTimer <= 0)
         {
-            whenTimesOver?.Invoke();
+            if (score >= 100)
+            {
+                whenTimesOver?.Invoke();
+            }
+            else
+            {
+                WhenYourANoob?.Invoke();
+            }
+            
+            
         }
 
         

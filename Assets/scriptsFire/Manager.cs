@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
+
 public class Manager : MonoBehaviour
 {
+    
     public UnityEvent whenWin;
     public UnityEvent whenLose;
     public GameObject itemPrefab;
@@ -17,6 +19,7 @@ public class Manager : MonoBehaviour
     public static int life = 3;
     public static int score = 0;
     public float globalTimer = 20f;
+    
 
     public void createJumper()
     {
@@ -28,7 +31,8 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //createJumper();
+        life = 3;//createJumper();
+        score = 0;
     }
 
    
@@ -41,17 +45,19 @@ public class Manager : MonoBehaviour
         if (timer <= 0)
         {
             createJumper();
-            timer = 2f;
+            timer = 0.5f;
         }
 
         if (globalTimer <= 0)
         {
             whenWin?.Invoke();
+            
         }
         
         if (Manager.life <= 0)
         {
             whenLose?.Invoke();
+            
         }
     }
 

@@ -593,7 +593,7 @@ MonoBehaviour:
           m_StringArgument: YouLose
           m_BoolArgument: 0
         m_CallState: 2
-  itemPrefab: {fileID: 988104842455639555, guid: c3482b6a61de2634b80f54c396c7fd1e, type: 3}
+  itemPrefab: {fileID: 2406452914648392046, guid: 9a7d5c02761410742a70f193088f9e07, type: 3}
   player: {fileID: 0}
   ground: {fileID: 1154899208}
   timer: 1
@@ -610,7 +610,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1154899208 stripped
 GameObject:
@@ -1017,7 +1017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8412700839400619501, guid: 12ccc691685bb624ab5acee5590ba4f5, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8412700839400619501, guid: 12ccc691685bb624ab5acee5590ba4f5, type: 3}
       propertyPath: m_LocalScale.x

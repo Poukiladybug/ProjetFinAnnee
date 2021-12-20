@@ -48,6 +48,7 @@ public class ArcherController : MonoBehaviour
         positionY = -4;
         Vector2 newMoveInput = new Vector2(positionX, positionY);
         GameObject item = Instantiate(bullet, newMoveInput, Quaternion.identity);
+        LevelManager.score -= 2;
 
                
     }

@@ -805,6 +805,21 @@ MonoBehaviour:
           m_StringArgument: TimeOver
           m_BoolArgument: 0
         m_CallState: 2
+  WhenYourANoob:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 182464618}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: Change
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: YouLost
+          m_BoolArgument: 0
+        m_CallState: 2
   targets: {fileID: 24695990726037347, guid: 1dc59c79c856564419330d2a446bbb83, type: 3}
   player: {fileID: 3447273246678294384, guid: bd5c8a4d4c456e340b52ff5a6e263db5, type: 3}
   timeBeforeSpawn: 1

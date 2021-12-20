@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class GoodBread : MonoBehaviour
 {
+    
+    
     public TextMeshPro breadTaste;
     public GameObject goodBread;
     public GameObject badBread;
@@ -16,6 +19,7 @@ public class GoodBread : MonoBehaviour
     private bool oneBread = true;
     private string taste;
     private bool goodRecipe = false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +71,7 @@ public class GoodBread : MonoBehaviour
         if( goodRecipe && SetFireToTheBread.isPerfect)
         {
             GameObject item = Instantiate(goodBread, position, Quaternion.identity);
+            
         }
 
         else

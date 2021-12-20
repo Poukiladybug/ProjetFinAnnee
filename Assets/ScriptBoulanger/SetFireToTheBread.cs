@@ -22,7 +22,7 @@ public class SetFireToTheBread : MonoBehaviour
     public bool unPain = true;
     public bool onePain = true;
     public bool unBread = true;
-    private Vector3 position = new Vector3(0f, 0.38f, 0);
+    private Vector3 position = new Vector3(0f, 0.38f, 75f);
     private GameObject item1;
     private GameObject item2;
     private GameObject item3;

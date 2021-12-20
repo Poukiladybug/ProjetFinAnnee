@@ -54,6 +54,7 @@ public class PellAPain : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         isActive = true;
+        Debug.Log(isActive);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
