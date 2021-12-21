@@ -45,7 +45,7 @@ public class Manager : MonoBehaviour
         if (timer <= 0)
         {
             createJumper();
-            timer = 0.5f;
+            timer = 0.7f;
         }
 
         if (globalTimer <= 0)

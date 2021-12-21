@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
+
 public class LevelManager : MonoBehaviour
 {
     
@@ -18,7 +19,8 @@ public class LevelManager : MonoBehaviour
 
     public static int score;
     public static float globalTimer;
-    
+    public AudioSource tchak;
+
 
     public void createTarget()
     {
@@ -62,6 +64,7 @@ public class LevelManager : MonoBehaviour
             
             
         }
+        
 
         
     }

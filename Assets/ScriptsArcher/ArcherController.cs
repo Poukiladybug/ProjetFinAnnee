@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class ArcherController : MonoBehaviour
 
 {
+    public AudioSource tchak;
+    
     private PlayerActions playerInput;
     private Rigidbody2D rb;
     public GameObject bullet;
@@ -16,6 +19,7 @@ public class ArcherController : MonoBehaviour
 
     private void Awake()
     {
+        
         playerInput = new PlayerActions();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -49,6 +53,7 @@ public class ArcherController : MonoBehaviour
         Vector2 newMoveInput = new Vector2(positionX, positionY);
         GameObject item = Instantiate(bullet, newMoveInput, Quaternion.identity);
         LevelManager.score -= 2;
+        
 
                
     }
@@ -58,6 +63,7 @@ public class ArcherController : MonoBehaviour
         if (playerInput.ArcherGameplay.Shoot.triggered)
         {
             Shoot();
+            tchak.Play();
             
         }
     }

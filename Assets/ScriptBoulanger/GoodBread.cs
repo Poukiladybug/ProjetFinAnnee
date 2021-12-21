@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class GoodBread : MonoBehaviour
@@ -52,7 +53,7 @@ public class GoodBread : MonoBehaviour
 
         }
 
-        if (levelOfFarine > 0.7f && levelOfFarine < 0.8f && levelOfLevure > 0.4f && levelOfLevure < 0.5f && levelOfBeure > 0.2f && levelOfBeure < 0.3f && levelOfEau > 0.1f && levelOfEau < 0.2f && levelOfSel < 0.1f && SetFireToTheBread.isPerfect)
+        if (levelOfFarine > 0.58f && levelOfFarine < 0.65f && levelOfLevure > 0.45f && levelOfLevure < 0.52f && levelOfBeure > 0.2f && levelOfBeure < 0.27f && levelOfEau > 0.45f && levelOfEau < 0.52f && levelOfSel > 0.19f && levelOfSel < 0.26f && SetFireToTheBread.isPerfect)
         {
             goodRecipe = true;
         }
@@ -80,5 +81,25 @@ public class GoodBread : MonoBehaviour
         }
 
 
+    }
+
+    public void Change(string name)
+    {
+        SceneManager.LoadScene(name);
+        
+    }
+
+    public void NextScene()
+    {
+        if (goodRecipe && SetFireToTheBread.isPerfect)
+        {
+            Change("Video");
+
+        }
+
+        else
+        {
+            Change("YouNoob");
+        }
     }
 }
